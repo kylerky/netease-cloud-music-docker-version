@@ -1,5 +1,5 @@
 #!/bin/bash
-sg docker "docker info &>/dev/null"
+docker info &>/dev/null
 if [[ $? -eq 1 ]]
 then
     echo "Docker connect error!"
@@ -8,7 +8,7 @@ fi
 
 xhost + local: &>/dev/null
 
-sg docker "docker run -dit --rm \
+docker run -dit --rm \
     -v /tmp/.X11-unix:/tmp/.X11-unix \
     -v $HOME/.config:/root/.config \
     -v $HOME/.cache:/root/.cache \
@@ -19,4 +19,4 @@ sg docker "docker run -dit --rm \
     --device /dev/snd \
     --device /dev/dri \
     --ipc host \
-qzwlecr/netease-cloud-music-docker-version &>/dev/null"
+qzwlecr/netease-cloud-music-docker-version &>/dev/null
